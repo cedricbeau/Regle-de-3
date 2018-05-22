@@ -1,0 +1,237 @@
+:root {
+  --body--color: #263238;
+  --body--backgroundColor: #ECEFF1;
+  --consignes--color: #ccc;
+  --consignes--backgroundColor: #141414;
+  --btn--consignes--backgroundColor: #333;
+
+  --color--success: #81C784;
+  --color--danger:#e57373;
+
+  --btn-submit--color: #ECEFF1;
+  --btn-submit--backgroundColor: #607D8B;
+  --btn-submit--backgroundColor--hover: #37474F;
+}
+
+/* Smart reset */
+*,*:before,*:after {
+  box-sizing:border-box;
+}
+/**/
+
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  font-size: 120%;
+  color: var(--body--color);
+  background-color: var(--body--backgroundColor);
+}
+
+/* Consigne */
+.consignes {
+  position: fixed;
+  z-index: 999;
+  right: 0;
+  left: 0;
+  transform: translateY(-200px);  
+  height: 200px;
+  padding: 1em;
+  color: var(--consignes--color);
+  background-color: var(--consignes--backgroundColor);
+  transition: transform .4s;
+}
+
+.consignes.is-down {  
+  transform: translateY(0); 
+}
+
+.consignes h3 {
+  margin-top: 0;
+}
+
+.consignes ol li + li {
+  margin-top: .625em;
+}
+
+.btn{  
+  display: inline-block;  
+  border: none;
+  cursor: pointer;
+}
+
+.btn-consignes {
+  position: fixed;
+  top: 200px;
+  right: 0;
+  padding: .875em 2.875em .875em .875em;
+  color: var(--consignes--color);
+  background-color: var(--btn--consignes--backgroundColor);
+  border-bottom-left-radius: .25rem;
+  transition: background-color .4s;
+}
+
+.btn-consignes:hover {
+  background-color: var(--consignes--backgroundColor);
+}
+
+.btn-consignes::before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  content: "\25BC";
+  line-height: 3;
+  text-align: center;
+  transition: transform .4s;
+}
+
+.btn-consignes.is-down::before {
+  transform: rotateX(180deg);
+}
+
+/* Content */
+.content {
+  margin-bottom: 1em;
+  transition: transform .4s;
+}
+
+.content.is-down {
+  transform: translateY(200px);
+}
+
+.content__header {
+  position: relative;
+}
+
+h1 {
+  padding: 3rem 0;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);  
+  grid-gap: 10px;
+  width: 310px;
+  margin: 0 auto 20px auto;
+}
+
+.grid-item {  
+  padding: 10px;
+  background-color: #FAFAFA;
+  border: 1px solid #EEEEEE;
+  border-radius: .25em;  
+}
+
+.label,
+label {
+  display: block;
+  height: 20px;
+  margin-bottom: 5px;
+  font-size: .875em;
+  color: #B0BEC5;
+}
+input,
+.input {
+  width: 100%;
+  height: 128px;
+  padding: 10px;
+  font-size: 1.25em;
+  text-align: center;
+  color: #78909C;
+  background: #fff;
+  border: 1px solid #EEEEEE;
+  border-radius: .25em;
+}
+
+.grid-item.danger label,
+.grid-item.danger input {
+  color: var(--color--danger);
+}
+
+.grid-item.danger input {
+  border-color: var(--color--danger);
+}
+
+.alert-box {
+  display: none;
+  margin-top: .625em;
+  font-size: .75em;
+  color: var(--color--danger);
+}
+
+.grid-item.danger .alert-box {
+  display:block;
+}
+
+.resultat {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.resultat.success {
+  color: var(--color--success);
+  border-color: var(--color--success);
+}
+
+/* Submit */
+
+.submit {
+  width: 310px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.btn-submit {
+  padding: .75em 1em;
+  color: var(--btn-submit--color);
+  background: var(--btn-submit--backgroundColor);
+  border-radius: .25em;
+  transition: all .4s;
+}
+
+.btn-submit:hover {
+  background: var(--btn-submit--backgroundColor--hover);
+}
+
+.btn-submit:active {
+  background: var(--btn-submit--backgroundColor);
+  box-shadow: 0 0 4px rgba(00,00,00,.35);
+}
+
+/* ---------- Footer ---------- */
+
+/* SVG */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+footer {
+  margin: 2em 0;
+  font-size: .75em;
+  color: #78909C; 
+  text-align: center;
+}
+
+footer a {
+  color: currentColor;
+  text-decoration: underline;
+  -webkit-transition: color .4s;
+  transition: color .4s;
+}
+
+footer a:hover {
+  color: #03A9F4;
+}
