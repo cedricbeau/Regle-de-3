@@ -11,26 +11,31 @@
   --btn-submit--color: #ECEFF1;
   --btn-submit--backgroundColor: #607D8B;
   --btn-submit--backgroundColor--hover: #37474F;
+  
+  --btn--reset--color: #BF360C;
+  --btn--reset--backgroundColor: #FFAB91;
+  --btn--reset--color--hover: #FBE9E7;
+  --btn--reset--backgroundColor--hover: #FF7043;
+
 }
 
 /* Smart reset */
+
 *,*:before,*:after {
   box-sizing:border-box;
 }
-/**/
 
+/**/
 
 body {
   font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
   font-size: 120%;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: var(--body--color);
   background-color: var(--body--backgroundColor);
 }
 
-/* Consigne */
+/* ---------- Consignes ---------- */
+
 .consignes {
   position: fixed;
   z-index: 999;
@@ -56,11 +61,18 @@ body {
   margin-top: .625em;
 }
 
+/* ---------- BTN ---------- */
+
 .btn{  
-  display: inline-block;  
-  border: none;
+  display: inline-block; 
+  padding: .625em .75em;
+	border: none;
+	border-radius: .25em;
   cursor: pointer;
+  transition: color .4s, background-color .4s;
 }
+
+/* Consignes */
 
 .btn-consignes {
   position: fixed;
@@ -69,7 +81,8 @@ body {
   padding: .875em 2.875em .875em .875em;
   color: var(--consignes--color);
   background-color: var(--btn--consignes--backgroundColor);
-  border-bottom-left-radius: .25rem;
+  border-radius: 0;
+  border-bottom-left-radius: .25em;
   transition: background-color .4s;
 }
 
@@ -94,7 +107,44 @@ body {
   transform: rotateX(180deg);
 }
 
-/* Content */
+/* Submit */
+
+.btn-submit { 
+	opacity: .5;
+	pointer-events: none;
+  color: var(--btn-submit--color);
+  background: var(--btn-submit--backgroundColor);
+}
+
+.btn-submit:hover {
+  background: var(--btn-submit--backgroundColor--hover);
+}
+
+.btn-submit:active {
+  background: var(--btn-submit--backgroundColor);
+  box-shadow: 0 0 4px rgba(00,00,00,.35);
+}
+
+/* Reset */
+
+.btn-reset {
+	opacity: .5;
+	pointer-events: none;
+	color: var(--btn--reset--color);
+  background-color: var(--btn--reset--backgroundColor);    
+}
+
+.btn-reset:hover {
+  color: var(--btn--reset--color--hover);
+  background-color: var(--btn--reset--backgroundColor--hover);  
+}
+
+.btn-reset:active {
+  box-shadow: 0 0 4px rgba(00,00,00,0.35);
+}
+
+/* ---------- Content ---------- */
+
 .content {
   margin-bottom: 1em;
   transition: transform .4s;
@@ -183,29 +233,12 @@ input,
   border-color: var(--color--success);
 }
 
-/* Submit */
+/* Action */
 
-.submit {
+.action {
   width: 310px;
   margin: 0 auto;
   text-align: right;
-}
-
-.btn-submit {
-  padding: .75em 1em;
-  color: var(--btn-submit--color);
-  background: var(--btn-submit--backgroundColor);
-  border-radius: .25em;
-  transition: all .4s;
-}
-
-.btn-submit:hover {
-  background: var(--btn-submit--backgroundColor--hover);
-}
-
-.btn-submit:active {
-  background: var(--btn-submit--backgroundColor);
-  box-shadow: 0 0 4px rgba(00,00,00,.35);
 }
 
 /* ---------- Footer ---------- */
