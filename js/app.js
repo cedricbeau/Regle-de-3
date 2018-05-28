@@ -25,24 +25,24 @@ function regleTrois(val1, val2, val3) {
 dangerBoxes()
 function dangerBoxes() {
 	
-	for(let i=0;i<inputs.length;i++){
+  for(let i=0;i<inputs.length;i++){
     let input = inputs[i]    
     input.addEventListener('keyup', function(){
 	    if(isNumber(input.value) === false) {
-		    //Desactive submit
-		    btnSubmit.style.opacity = .5
-		    btnSubmit.style.pointerEvents = 'none'
+	      //Desactive submit
+	      btnSubmit.style.opacity = .5
+	      btnSubmit.style.pointerEvents = 'none'
 	      //Add dangerbox  
 	      input.parentNode.classList.add('danger')    
 	    } else {
 	      console.log(isNumber(input.value))
 	      if(isNumber(value1.value) === true && isNumber(value1.value) === true && isNumber(value3.value) === true) {
-		      //Active submit
-		      btnSubmit.style.opacity = 1
-		      btnSubmit.style.pointerEvents = 'all'
+		//Active submit
+		btnSubmit.style.opacity = 1
+		btnSubmit.style.pointerEvents = 'all'
 	      }	      
 	      if (input.parentNode.classList.contains('danger')) {
-		      //Remove dangerbox
+		//Remove dangerbox
 	        input.parentNode.classList.remove('danger')
 	      }
 	    }
@@ -62,25 +62,23 @@ function getResult() {
   } else {
     valueX.innerText = regleTrois(value1.value, value2.value, value3.value)
     valueX.classList.add('success')
-    btnReset.style.opacity = 1
-    btnReset.style.pointerEvents = 'all'
+    this.style.visibility = 'visible'
   }
   
 }
 
 // Reset function
 function reset(){
-	// Supprime les valeurs des champs
-	value1.value = ''
+  // Supprime les valeurs des champs
+  value1.value = ''
   value2.value = ''
   value3.value = ''
   valueX.innerHTML = ''
   if(valueX.classList.contains('success')) {
-	  valueX.classList.remove('success')
+    valueX.classList.remove('success')
   }
   // Désactive le bouton reset
-  this.style.opacity = .5
-  this.style.pointerEvents = 'none'
+  this.style.visibility = 'hidden'
   // Désactive le bouton submit
   btnSubmit.style.opacity = .5
   btnSubmit.style.pointerEvents = 'none'
