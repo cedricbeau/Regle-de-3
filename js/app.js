@@ -1,27 +1,17 @@
 'use strict';
 
-toggleConsigne()
-function toggleConsigne(){
+// Variables
+// Inputs
+let value1 = document.getElementById('value1')
+let value2 = document.getElementById('value2')
+let value3 = document.getElementById('value3')
+let valueX = document.getElementById('valueX')
+let inputs = document.querySelectorAll('input')
+//Btns
+let btnSubmit = document.querySelector('.btn-submit')
+let btnReset = document.querySelector('.btn-reset')
 
-  let btn = document.querySelector('.btn-consignes')
-  
-  function toggleClass(el1, el2, el3) {
-    el1.classList.toggle('is-down')
-    el2.classList.toggle('is-down')
-    el3.classList.toggle('is-down')
-  }
-
-  function toggleEls(){
-    let consigne = document.querySelector('.consignes')
-    let content = document.querySelector('.content')
-    let btn = document.querySelector('.btn-consignes')
-    toggleClass(consigne, content, btn)
-  }
-  
-  btn.addEventListener('click', toggleEls, false)  
-
-}
-
+// Detect number
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -31,29 +21,39 @@ function regleTrois(val1, val2, val3) {
   return Math.floor((val1 * val2) / val3)
 }
 
-function values() {
-
-  let value1 = document.getElementById('value1')
-  let value2 = document.getElementById('value2')
-  let value3 = document.getElementById('value3')
-  let valueX = document.getElementById('valueX')
-
-  let inputs = document.querySelectorAll('input')
-  for(let i=0;i<inputs.length;i++){
-
-    let input = inputs[i]
-
-    if(isNumber(input.value) === false) {
-      console.log(isNumber(input.value))  
-      input.parentNode.classList.add('danger')    
-    } else {
-      console.log(isNumber(input.value))
-      if (input.parentNode.classList.contains('danger')) {
-        input.parentNode.classList.remove('danger')
-      }
-    }
+//Danger boxes
+dangerBoxes()
+function dangerBoxes() {
+	
+	for(let i=0;i<inputs.length;i++){
+    let input = inputs[i]    
+    input.addEventListener('keyup', function(){
+	    if(isNumber(input.value) === false) {
+		    //Desactive submit
+		    btnSubmit.style.opacity = .5
+		    btnSubmit.style.pointerEvents = 'none'
+	      //Add dangerbox  
+	      input.parentNode.classList.add('danger')    
+	    } else {
+	      console.log(isNumber(input.value))
+	      if(isNumber(value1.value) === true && isNumber(value1.value) === true && isNumber(value3.value) === true) {
+		      //Active submit
+		      btnSubmit.style.opacity = 1
+		      btnSubmit.style.pointerEvents = 'all'
+	      }	      
+	      if (input.parentNode.classList.contains('danger')) {
+		      //Remove dangerbox
+	        input.parentNode.classList.remove('danger')
+	      }
+	    }
+    })    
   }
 
+}
+
+//Get Resultat
+function getResult() { 
+	
   if(isNumber(regleTrois(value1.value, value2.value, value3.value) || valueX.innerText === 0) === false) {
     valueX.innerText = ''
     if(valueX.classList.contains('success')){
@@ -62,10 +62,34 @@ function values() {
   } else {
     valueX.innerText = regleTrois(value1.value, value2.value, value3.value)
     valueX.classList.add('success')
+    btnReset.style.opacity = 1
+    btnReset.style.pointerEvents = 'all'
   }
   
 }
 
-let btnSubmit = document.querySelector('.btn-submit')
+// Reset function
+function reset(){
+	// Supprime les valeurs des champs
+	value1.value = ''
+  value2.value = ''
+  value3.value = ''
+  valueX.innerHTML = ''
+  if(valueX.classList.contains('success')) {
+	  valueX.classList.remove('success')
+  }
+  // Désactive le bouton reset
+  this.style.opacity = .5
+  this.style.pointerEvents = 'none'
+  // Désactive le bouton submit
+  btnSubmit.style.opacity = .5
+  btnSubmit.style.pointerEvents = 'none'
+}
 
-btnSubmit.addEventListener('click', values, false)
+// Event listener
+// submit
+btnSubmit.addEventListener('click', getResult, false)
+// reset
+btnReset.addEventListener('click', reset, false)
+
+
