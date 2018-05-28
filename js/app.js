@@ -28,24 +28,24 @@ function dangerBoxes() {
   for(let i=0;i<inputs.length;i++){
     let input = inputs[i]    
     input.addEventListener('keyup', function(){
-	    if(isNumber(input.value) === false) {
-	      //Desactive submit
-	      btnSubmit.style.opacity = .5
-	      btnSubmit.style.pointerEvents = 'none'
-	      //Add dangerbox  
-	      input.parentNode.classList.add('danger')    
-	    } else {
-	      console.log(isNumber(input.value))
-	      if(isNumber(value1.value) === true && isNumber(value1.value) === true && isNumber(value3.value) === true) {
-		//Active submit
-		btnSubmit.style.opacity = 1
-		btnSubmit.style.pointerEvents = 'all'
-	      }	      
-	      if (input.parentNode.classList.contains('danger')) {
-		//Remove dangerbox
-	        input.parentNode.classList.remove('danger')
-	      }
-	    }
+      if(isNumber(input.value) === false) {
+	//Desactive submit
+	btnSubmit.style.opacity = .5
+	btnSubmit.style.pointerEvents = 'none'
+	//Add dangerbox  
+	input.parentNode.classList.add('danger')    
+      } else {
+	console.log(isNumber(input.value))
+	if(isNumber(value1.value) === true && isNumber(value1.value) === true && isNumber(value3.value) === true) {
+	  //Active submit
+	  btnSubmit.style.opacity = 1
+	  btnSubmit.style.pointerEvents = 'all'
+	}	      
+	if (input.parentNode.classList.contains('danger')) {
+	  //Remove dangerbox
+	  input.parentNode.classList.remove('danger')
+	}
+      }
     })    
   }
 
@@ -62,7 +62,7 @@ function getResult() {
   } else {
     valueX.innerText = regleTrois(value1.value, value2.value, value3.value)
     valueX.classList.add('success')
-    this.style.visibility = 'visible'
+    btnReset.style.visibility = 'visible'
   }
   
 }
