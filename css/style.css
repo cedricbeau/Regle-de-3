@@ -63,7 +63,7 @@ body {
 
 /* ---------- BTN ---------- */
 
-.btn{  
+.btn {  
   display: inline-block; 
   padding: .625em .75em;
 	border: none;
@@ -110,8 +110,8 @@ body {
 /* Submit */
 
 .btn-submit { 
-	opacity: .5;
-	pointer-events: none;
+  opacity: .5;
+  pointer-events: none;
   color: var(--btn-submit--color);
   background: var(--btn-submit--backgroundColor);
 }
@@ -128,9 +128,8 @@ body {
 /* Reset */
 
 .btn-reset {
-	opacity: .5;
-	pointer-events: none;
-	color: var(--btn--reset--color);
+  visibility: hidden;
+  color: var(--btn--reset--color);
   background-color: var(--btn--reset--backgroundColor);    
 }
 
