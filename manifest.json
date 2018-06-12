@@ -1,0 +1,21 @@
+{"name" : "R23",
+    "short_name" : "R23",
+    "theme_color" : "#ffffff",
+    "background_color" : "#ffffff",
+    "display" : "standalone",
+    "start_url" : "https://cedricbeau.github.io/Regle-de-3/",
+    "lang" : "French",
+    "orientation" : "portrait-primary",
+    "description" : "Règle de 3",
+    "scope" : "https://cedricbeau.github.io/Regle-de-3/",
+    "icons" : [
+        {
+            "src": "https://cedricbeau.github.io/Regle-de-3/favicon/android-chrome-192x192.png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "https://cedricbeau.github.io/Regle-de-3/favicon/android-chrome-512x512.png",
+            "sizes": "512x512"
+        }
+    ]
+}

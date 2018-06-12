@@ -1,5 +1,5 @@
 :root {
-  --body--color: #263238;
+  --body--color: #78909C;
   --body--backgroundColor: #ECEFF1;
   
   --color--success: #81C784;
@@ -26,9 +26,15 @@
 
 body {
   font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
-  font-size: 120%;
+  font-size: 100%;
   color: var(--body--color);
   background-color: var(--body--backgroundColor);
+}
+
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 120%;
+	}
 }
 
 /* ---------- BTN ---------- */
@@ -36,8 +42,8 @@ body {
 .btn{  
   display: inline-block; 
   padding: .625em .75em;
-	border: none;
-	border-radius: .25em;
+  border: none;
+  border-radius: .25em;
   cursor: pointer;
   transition: color .4s, background-color .4s;
 }
@@ -84,18 +90,24 @@ body {
 }
 
 h1 {
-  padding: 3rem 0;
+  padding: 1.5rem 0;
   margin: 0;
   font-size: 1.5em;
   font-weight: 400;
   text-align: center;
 }
 
+@media only screen and (min-width: 768px) {
+	h1 {
+		padding: 3rem 0;
+	}
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 150px);  
+  grid-template-columns: repeat(2, 145px);  
   grid-gap: 10px;
-  width: 310px;
+  width: 300px;
   margin: 0 auto 20px auto;
 }
 
@@ -117,7 +129,7 @@ label {
 input,
 .input {
   width: 100%;
-  height: 128px;
+  height: 70px;
   padding: 10px;
   font-size: 1.25em;
   text-align: center;
@@ -158,10 +170,17 @@ input,
   border-color: var(--color--success);
 }
 
+@media only screen and (min-width: 768px) {
+	input,
+	.input {
+		height: 128px;
+	}
+}
+
 /* Action */
 
 .action {
-  width: 310px;
+  width: 300px;
   margin: 0 auto;
   text-align: right;
 }

@@ -1,11 +1,8 @@
 /* ---------- Footer ---------- */
 footer {
-	max-width: 30em;
+  width: 300px;
   padding-top: 2em;
-  margin-top: 5em !important;
-  margin-right: auto;
-  margin-bottom: 2em !important;
-  margin-left: auto;
+  margin: 1em auto;
   font-size: 0.875em;
   text-align: center;
   color: #78909C; 
@@ -17,9 +14,8 @@ footer div + div {
 }
 
 footer a {
-  color: #78909C; ;
+  color: #78909C;
   text-decoration: none;
-  -webkit-transition: color .4s;
   transition: color .4s;
 }
 
@@ -33,15 +29,16 @@ footer svg {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
-  -webkit-transition: fill .4s;
   transition: fill .4s;
 }
 
 @media only screen and (min-width: 768px) {
-  footer {
-    display: flex;
+	footer {
+		display: flex;
     justify-content: space-between;
-  }
+		align-items: center;
+		margin: 2em auto;
+	}
   footer div + div {
     margin-top: 0;
   }

@@ -40,14 +40,15 @@
   right: 0;
   padding: .625em 1em .5em 1em;
   color: currentColor;
-  background-color: #141414;
+  background-color: #78909C;
   border-radius: 0;
   border-bottom-left-radius: 0.25em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   transition: background-color .4s;
 }
 
-.btn-consignes:hover {
+.btn-consignes:hover,
+.btn-consignes.is-down{
   background-color: #141414;
 }
 
