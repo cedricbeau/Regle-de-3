@@ -1,0 +1,24 @@
+{
+  "name": "Regle-de-3",
+  "version": "1.0.0",
+  "description": "Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d'un produit en croix ou la règle de trois.",
+  "main": "manup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cedricbeau/Regle-de-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cedricbeau/Regle-de-3/issues"
+  },
+  "homepage": "https://github.com/cedricbeau/Regle-de-3#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}

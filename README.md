@@ -10,6 +10,10 @@ Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d
 
 ## Modifications
 
+**08/06/2019**
+
+* Ajout de React
+
 **12/06/2018:**
 
 * Adaptation sur **smartphones**
