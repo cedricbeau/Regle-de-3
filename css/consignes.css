@@ -16,7 +16,7 @@
   transform: translateY(0);
 }
 
-.consignes h3 {
+.consignes h2 {
   margin-top: 0;
 }
 
@@ -38,7 +38,7 @@
   position: fixed;
   top: 200px;
   right: 0;
-  padding: .625em 1em .5em 1em;
+  padding: .425em 1em .65em 1em;
   color: currentColor;
   background-color: #78909C;
   border-radius: 0;
@@ -48,7 +48,7 @@
 }
 
 .btn-consignes:hover,
-.btn-consignes.is-down{
+.consignes.is-down .btn-consignes {
   background-color: #141414;
 }
 
@@ -67,13 +67,3 @@
 .btn-consignes.is-down svg {
   transform: rotate(180deg);
 }
-
-/* ---------- Content ---------- */
-.content {
-  transition: transform .4s;
-}
-
-.content.is-down {
-  transform: translateY(300px);
-}
-/*# sourceMappingURL=consignes.css.map */

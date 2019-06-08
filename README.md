@@ -13,6 +13,7 @@ Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d
 **08/06/2019**
 
 * Ajout de React
+* Transformation des consignes en composant React
 
 **12/06/2018:**
 
