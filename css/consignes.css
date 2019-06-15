@@ -51,19 +51,3 @@
 .consignes.is-down .btn-consignes {
   background-color: #141414;
 }
-
-.btn-consignes svg {
-  display: inline-block;
-	vertical-align: middle;
-	width: 1em;
-	height: 1em;
-	margin-top: -4px;
-	stroke-width: 0;
-	stroke: currentColor;
-	fill: currentColor;
-  transition: transform .4s;
-}
-
-.btn-consignes.is-down svg {
-  transform: rotate(180deg);
-}

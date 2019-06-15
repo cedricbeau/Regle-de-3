@@ -42,19 +42,11 @@ var instructions = [{
 }];
 
 function Down() {
-  return React.createElement(
-    "span",
-    null,
-    "\u2193"
-  );
+  return React.createElement("span", { "class": "icon-arrow-down2" });
 }
 
 function Up() {
-  return React.createElement(
-    "span",
-    null,
-    "\u2191"
-  );
+  return React.createElement("span", { "class": "icon-arrow-up2" });
 }
 
 var ToggleInstructions = function (_React$Component) {

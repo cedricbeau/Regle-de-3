@@ -10,12 +10,16 @@ Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d
 
 ## Modifications
 
+**15/06/2019:**
+
+* Remplacement des appels svg par une fonticon icomoon
+  
 **08/06/2019**
 
 * Ajout de React
 * Transformation des consignes en composant React
 
-**12/06/2018:**
+**12/05/2018:**
 
 * Adaptation sur **smartphones**
 * Ajout d'un **favicon**

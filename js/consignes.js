@@ -1,6 +1,5 @@
 'use strict';
 
-
 (function (){
 
   let btn = document.querySelector('.btn-consignes')
@@ -20,4 +19,4 @@
   
   btn.addEventListener('click', toggleEls, false) 
 
-})() 
+})();

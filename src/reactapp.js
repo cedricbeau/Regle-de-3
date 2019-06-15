@@ -30,11 +30,11 @@ const instructions = [
 ]
 
 function Down() {
-  return <span>&darr;</span>
+  return <span class="icon-arrow-down2"></span>
 }
 
 function Up() {
-  return <span>&uarr;</span>
+  return <span class="icon-arrow-up2"></span>
 }
 
 class ToggleInstructions extends React.Component {
