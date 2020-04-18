@@ -16,7 +16,7 @@
 
 }
 
-/* Smart reset */
+/* Small reset */
 
 *,*:before,*:after {
   box-sizing:border-box;
@@ -32,6 +32,7 @@
     url('../fonts/icomoon.svg?e5g4rs#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -86,7 +87,7 @@ body {
 
 /* ---------- BTN ---------- */
 
-.btn{  
+.btn {  
   display: inline-block; 
   padding: .625em .75em;
   border: none;
