@@ -1,14 +1,14 @@
 :root {
   --body--color: #78909C;
   --body--backgroundColor: #ECEFF1;
-  
+
   --color--success: #81C784;
   --color--danger:#e57373;
 
   --btn-submit--color: #ECEFF1;
   --btn-submit--backgroundColor: #607D8B;
   --btn-submit--backgroundColor--hover: #37474F;
-  
+
   --btn--reset--color: #BF360C;
   --btn--reset--backgroundColor: #FFAB91;
   --btn--reset--color--hover: #FBE9E7;
@@ -83,8 +83,8 @@ body {
 
 /* ---------- BTN ---------- */
 
-.btn {  
-  display: inline-block; 
+.btn {
+  display: inline-block;
   padding: .625em .75em;
   border: none;
   border-radius: .25em;
@@ -94,7 +94,7 @@ body {
 
 /* Submit */
 
-.btn-submit { 
+.btn-submit {
 	opacity: .5;
 	pointer-events: none;
   color: var(--btn-submit--color);
@@ -115,12 +115,12 @@ body {
 .btn-reset {
 	visibility: hidden;
 	color: var(--btn--reset--color);
-  background-color: var(--btn--reset--backgroundColor);    
+  background-color: var(--btn--reset--backgroundColor);
 }
 
 .btn-reset:hover {
   color: var(--btn--reset--color--hover);
-  background-color: var(--btn--reset--backgroundColor--hover);  
+  background-color: var(--btn--reset--backgroundColor--hover);
 }
 
 .btn-reset:active {
@@ -149,17 +149,17 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 145px);  
+  grid-template-columns: repeat(2, 145px);
   grid-gap: 10px;
   width: 300px;
   margin: 0 auto 20px auto;
 }
 
-.grid-item {  
+.grid-item {
   padding: 10px;
   background-color: #FAFAFA;
   border: 1px solid #EEEEEE;
-  border-radius: .25em;  
+  border-radius: .25em;
 }
 
 .label,
@@ -206,7 +206,7 @@ input,
 .resultat {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .resultat.success {
