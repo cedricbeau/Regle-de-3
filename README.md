@@ -10,10 +10,15 @@ Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d
 
 ## Modifications
 
+**10/05/2020:**
+
+* Ajout du Frawework VueJS
+* Conversion du CSS en SCSS
+
 **15/06/2019:**
 
 * Remplacement des appels svg par une fonticon icomoon
-  
+
 **08/06/2019**
 
 * Ajout de React
