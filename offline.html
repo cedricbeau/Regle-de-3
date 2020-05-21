@@ -16,67 +16,95 @@
 	<meta name="msapplication-TileColor" content="#4CB2D4">
   <meta name="theme-color" content="#ffffff">
 
-  <script src="js/react.production.min.js" crossorigin></script>
-  <script src="js/react-dom.production.min.js" crossorigin></script>
+  <script src="js/vue.min.js"></script>
 
 	<link rel="manifest" href="manifest.json"></link>
 
   <!-- Critical Styles -->
   <style>/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden],template{display:none}</style>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styles.min.css">
 </head>
 
 <body>
 
-    <!-- Consignes -->
-    <link rel="stylesheet" href="css/consignes.css">
-    <div id="instructions"></div>
-    <!-- Content -->
-    <div class="content">
-      <div class="content__Header">
-        <h1>Règle de 3</h1>
+  <div id="app">
+    <div class="app__content"
+         v-if="checkIE()">
+      <!-- Consignes -->
+      <link rel="stylesheet" href="css/instructions.min.css">
+      <div class="instructions"
+          v-bind:class="{ visible: isVisible }">
+        <div class="instructions__content"
+            v-if="isVisible">
+          <h2 class="instructions__title">Instructions</h2>
+          <ol class="instructions__list">
+            <li v-for="instruction in instructions"
+                :key="instruction.id">{{ instruction.value }}</li>
+          </ol>
+        </div>
+        <button type="button"
+                class="btn btn-instructions"
+                v-bind:class="{ visible: isVisible }"
+                v-on:click="toggleInstructions">
+          <span class="icon-arrow-down2"></span>
+        </button>
       </div>
-      <div class="grid">
-        <div class="grid-item">
-          <label for="value3">Valeur 3</label>
-          <input type="text" name="value3" id="value3">
-          <div class="alert-box">Veuillez renseigner un chiffre</div>
+      <!-- Content -->
+      <link rel="stylesheet" href="css/content.min.css">
+      <div class="content"
+          v-bind:class="{ visible: isVisible }">
+        <div class="content__Header">
+          <h1>{{ title }}</h1>
         </div>
-        <div class="grid-item">
-          <label for="value2">Valeur 2</label>
-          <input type="text" name="value2" id="value2">
-          <div class="alert-box">Veuillez renseigner un chiffre</div>
+        <div class="grid">
+          <div class="grid-item"
+               v-for="(val, key) in inputs"
+               :key="key">
+            <label :for="key"
+                   class="label">{{ val }}</label>
+            <input type="text"
+                   :name="key"
+                   :id="key" class="input">
+            <div class="alert-box">{{ errorMessage }}</div>
+          </div>
+          <div class="grid-item">
+            <div class="fake-label">Valeur X</div>
+            <div id="valueX"
+                 class="resultat fake-input"></div>
+          </div>
         </div>
-        <div class="grid-item">
-          <label for="value1">Valeur 1</label>
-          <input type="text" name="value1" id="value1">
-          <div class="alert-box">Veuillez renseigner un chiffre</div>
+        <div class="action">
+          <button type="reset"
+                  class="btn btn-reset">Reset</button>
+          <button type="button"
+                  class="btn btn-submit">Calculer</button>
         </div>
-        <div class="grid-item">
-          <div class="label">Valeur X</div>
-          <div id="valueX" class="resultat input"></div>
-        </div>
-      </div>
-      <div class="action">
-        <button type="reset" class="btn btn-reset">Reset</button>
-        <button type="button" class="btn btn-submit">Calculer</button>
-      </div>
-      <link rel="stylesheet" href="css/footer.css">
-      <footer class="container">
-        <div class="me">
-          <script type="text/javascript">document.write(new Date().getFullYear());</script>
-          - <span class="icon-embed2"></span> avec <span class="icon-heart"></span> par <a href="https://cedricbeau.pro/" title="cedricbeau.pro">Cédric Beau</a>
-        </div>
-        <div class="github">
-          <a href="https://github.com/cedricbeau/Regle-de-3">
+        <!-- Footer -->
+        <link rel="stylesheet" href="css/footer.min.css">
+        <footer class="content__footer">
+          <div class="me">
+            <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            - <span class="icon-embed2"></span> avec <span class="icon-heart"></span> par <a :href="links.site" :title="links.siteTitle">Cédric Beau</a>
+          </div>
+          <a :href="links.repo"
+             :title="links.repoTitle"
+             class="github">
             <span class="icon-github"></span>
           </a>
+        </footer>
+      </div>
+      <div v-else>
+        <div class="content ie">
+          <header class="content__header">
+            <h1>Votre navigateur n'est pas supporté</h1>
+          </header>
         </div>
-      </footer>
-      <!-- Footer: End -->
+      </div>
     </div>
+  </div>
 
-    <script src="js/app.js"></script>
-    <script src="reactapp.js"></script>
+  <script src="js/vueapp.js"></script>
+  <script src="js/app.js"></script>
+
 </body>
 </html>

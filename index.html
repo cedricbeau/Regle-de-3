@@ -26,52 +26,80 @@
 </head>
 
 <body>
-
-  <link rel="stylesheet" href="css/instructions.min.css">
-  <div id="instructions"></div>
-  <!-- Content -->
-  <link rel="stylesheet" href="css/content.min.css">
-  <div class="content">
-    <div class="content__Header">
-      <h1>Règle de 3</h1>
+  <div id="app">
+    <div class="app__content"
+         v-if="checkIE()">
+      <!-- Consignes -->
+      <link rel="stylesheet" href="css/instructions.min.css">
+      <div class="instructions"
+          v-bind:class="{ visible: isVisible }">
+        <div class="instructions__content"
+            v-if="isVisible">
+          <h2 class="instructions__title">Instructions</h2>
+          <ol class="instructions__list">
+            <li v-for="instruction in instructions"
+                :key="instruction.id">{{ instruction.value }}</li>
+          </ol>
+        </div>
+        <button type="button"
+                class="btn btn-instructions"
+                v-bind:class="{ visible: isVisible }"
+                v-on:click="toggleInstructions">
+          <span class="icon-arrow-down2"></span>
+        </button>
+      </div>
+      <!-- Content -->
+      <link rel="stylesheet" href="css/content.min.css">
+      <div class="content"
+          v-bind:class="{ visible: isVisible }">
+        <div class="content__Header">
+          <h1>{{ title }}</h1>
+        </div>
+        <div class="grid">
+          <div class="grid-item"
+               v-for="(val, key) in inputs"
+               :key="key">
+            <label :for="key"
+                   class="label">{{ val }}</label>
+            <input type="text"
+                   :name="key"
+                   :id="key" class="input">
+            <div class="alert-box">{{ errorMessage }}</div>
+          </div>
+          <div class="grid-item">
+            <div class="fake-label">Valeur X</div>
+            <div id="valueX"
+                 class="resultat fake-input"></div>
+          </div>
+        </div>
+        <div class="action">
+          <button type="reset"
+                  class="btn btn-reset">Reset</button>
+          <button type="button"
+                  class="btn btn-submit">Calculer</button>
+        </div>
+        <!-- Footer -->
+        <link rel="stylesheet" href="css/footer.min.css">
+        <footer class="content__footer">
+          <div class="me">
+            <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            - <span class="icon-embed2"></span> avec <span class="icon-heart"></span> par <a :href="links.site" :title="links.siteTitle">Cédric Beau</a>
+          </div>
+          <a :href="links.repo"
+             :title="links.repoTitle"
+             class="github">
+            <span class="icon-github"></span>
+          </a>
+        </footer>
+      </div>
+      <div v-else>
+        <div class="content ie">
+          <header class="content__header">
+            <h1>Votre navigateur n'est pas supporté</h1>
+          </header>
+        </div>
+      </div>
     </div>
-    <div class="grid">
-      <div class="grid-item">
-        <label for="value3">Valeur 3</label>
-        <input type="text" name="value3" id="value3">
-        <div class="alert-box">Veuillez renseigner un chiffre</div>
-      </div>
-      <div class="grid-item">
-        <label for="value2">Valeur 2</label>
-        <input type="text" name="value2" id="value2">
-        <div class="alert-box">Veuillez renseigner un chiffre</div>
-      </div>
-      <div class="grid-item">
-        <label for="value1">Valeur 1</label>
-        <input type="text" name="value1" id="value1">
-        <div class="alert-box">Veuillez renseigner un chiffre</div>
-      </div>
-      <div class="grid-item">
-        <div class="label">Valeur X</div>
-        <div id="valueX" class="resultat input"></div>
-      </div>
-    </div>
-    <div class="action">
-	    <button type="reset" class="btn btn-reset">Reset</button>
-      <button type="button" class="btn btn-submit">Calculer</button>
-    </div>
-    <link rel="stylesheet" href="css/footer.min.css">
-    <footer class="container">
-      <div class="me">
-        <script type="text/javascript">document.write(new Date().getFullYear());</script>
-        - <span class="icon-embed2"></span> avec <span class="icon-heart"></span> par <a href="https://cedricbeau.pro/" title="cedricbeau.pro">Cédric Beau</a>
-      </div>
-      <div class="github">
-        <a href="https://github.com/cedricbeau/Regle-de-3">
-          <span class="icon-github"></span>
-        </a>
-      </div>
-    </footer>
   </div>
 
 	<script>
