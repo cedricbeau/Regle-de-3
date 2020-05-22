@@ -10,12 +10,17 @@ Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d
 
 ## Modifications
 
-**10/05/2020:**
+**22/05/2020**
+
+* Basculment complet sur Vuejs
+* Mise à jour de l'UI
+
+**10/05/2020**
 
 * Ajout du Frawework VueJS
 * Conversion du CSS en SCSS
 
-**15/06/2019:**
+**15/06/2019**
 
 * Remplacement des appels svg par une fonticon icomoon
 
@@ -24,7 +29,7 @@ Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d
 * Ajout de React
 * Transformation des consignes en composant React
 
-**12/05/2018:**
+**12/05/2018**
 
 * Adaptation sur **smartphones**
 * Ajout d'un **favicon**
