@@ -64,20 +64,24 @@
                    class="label">{{ val }}</label>
             <input type="text"
                    :name="key"
-                   :id="key" class="input">
+                   :id="key"
+                   class="input"
+                   @input="getAlert">
             <div class="alert-box">{{ errorMessage }}</div>
           </div>
-          <div class="grid-item">
-            <div class="fake-label">Valeur X</div>
-            <div id="valueX"
-                 class="resultat fake-input"></div>
-          </div>
         </div>
-        <div class="action">
-          <button type="reset"
-                  class="btn btn-reset">Reset</button>
+        <div class="fake-grid-item">
+          <div class="fake-label">Valeur X</div>
+          <div id="valueX"
+               class="resultat fake-input"></div>
+        </div>
+        <div class="actions">
           <button type="button"
-                  class="btn btn-submit">Calculer</button>
+                  class="btn btn-reset"
+                  @click="getReset">Reset</button>
+          <button type="button"
+                  class="btn btn-submit"
+                  @click="getResult">Calculer</button>
         </div>
         <!-- Footer -->
         <link rel="stylesheet" href="css/footer.min.css">
@@ -103,8 +107,7 @@
     </div>
   </div>
 
-  <script src="js/vueapp.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app-min.js"></script>
 
 </body>
 </html>
