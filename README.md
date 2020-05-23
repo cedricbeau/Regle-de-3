@@ -14,6 +14,7 @@ Outil en ligne qui permet de calculer une quatrième proportionnelle à l'aide d
 
 * Basculment complet sur Vuejs
 * Mise à jour de l'UI
+* Ajout de la detection de IE en CSS
 
 **10/05/2020**
 

@@ -16,6 +16,14 @@
 
 }
 
+// Mixin IE
+
+@mixin target-ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
 /* Small reset */
 
 *,*:before,*:after {
@@ -79,6 +87,24 @@ body {
 	body {
 		font-size: 120%;
 	}
+}
+
+.app__content {
+
+  &.is-ie {
+    display: none;
+  }
+
+  @include target-ie {
+
+    &.is-ie {
+      display: block;
+    }
+
+    &.is-not-ie {
+      display: none;
+    }
+  }
 }
 
 /* ---------- BTN ---------- */
